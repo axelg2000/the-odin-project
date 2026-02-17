@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+  
+    <div id="target"></div>
+
+    <script>
+
+        class Car{
+          constructor(make,model,year){
+            this.make = make;
+            this.model = model;
+            this.year = year
+          }
+
+          getInfo(){
+            return `${this.year} ${this.make} ${this.model}`
+          }
+        }
+        const car = new Car("Toyota", "Corolla", 2020);
+        console.log(car)
+
+
+       class Product{
+          constructor(name,price){
+            this.name = name;
+            this.price = price;
+        }
+
+        applyDiscount(percent){
+          this.price -= this.price * (percent / 100);
+          return this.price
+
+        }
+
+        static compare(p1,p2){
+          return p1.price - p2.price;
+        }
+      }
+      const product1 = new Product('Teeshirt',20)
+      const product2 = new Product('pant',50)
+      console.log(Product.compare(product1,product2))
+
+      
+
+
+      class Animal{
+        constructor(name){
+          this.name = name;
+        }
+        speak(){
+          return `${this.name} makes a sound`
+        }
+      }
+
+      class Cat extends Animal{
+        constructor(name, color){
+          super(name);
+          this.color = color;
+        }
+        speak(){
+          return `${this.name} meows`
+        }
+
+        describe(){
+          return `${this.name} is a ${this.color} cat`
+        }
+      }
+
+      const tiger = new Animal('Tiger')
+      console.log(tiger.speak())
+
+      const blackCat = new Cat('Cat','black')
+      console.log(blackCat.describe())
+
+
+      class Wallet{
+        #balance = 0;
+        constructor(balance,owner){
+          this.owner = owner
+          this.#balance = balance
+        }
+
+        getBalance(){
+          return this.#balance
+        }
+        addMoney(amount){
+          if (amount>0){
+            this.#balance += amount
+          }
+        }
+        spend(amount){
+          if (amount > this.#balance){
+            return `not enough money`
+          } else {
+            this.#balance -= amount;
+             return `Spent ${amount}. remaining ${this.#balance}`
+          }
+         
+        }
+      }
+
+      const axelWallet= new Wallet(1500,'Axel');
+      console.log(axelWallet.spend(200))
+
+
+
+      class Employee{
+        #salary
+        static count = 0
+        constructor(name,salary){
+          this.name = name;
+          this.#salary = salary
+          Employee.count ++;
+        }
+        getSalary(){
+          return this.#salary;
+        }
+        raiseSalary(percent){
+          this.#salary += this.#salary * (percent/100)
+        }
+        describe(){
+          return `${this.name} works here.`;
+        }
+        
+        // static count = 0 
+      }
+
+      class Manager extends Employee{
+        constructor(name,salary,department){
+          super(name, salary);
+          this.department = department
+        }
+        describe(){
+          return `${this.name} manages the ${this.department} department.`;
+        }
+      }
+
+
+      const employee = new Employee('Axel', 1500)
+      console.log(employee)
+      console.log(employee.describe())
+      employee.raiseSalary(10)
+      console.log(employee.getSalary())
+      const manager = new Manager('Alistair', 3500, 'IT')
+      console.log(manager.raiseSalary(100))
+      console.log(manager.describe())
+      console.log(Employee.count)
+
+
+
+
+
+    </script>
+  </body>
+
+</html>

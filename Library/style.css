@@ -1,0 +1,18 @@
+#container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+#library {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+#library > div {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
