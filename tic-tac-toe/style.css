@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  width: 60%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background: #e2e8f0;
+  border-radius: 4px;
+}

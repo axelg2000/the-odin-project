@@ -1,83 +1,14 @@
-@font-face {
-  font-family: "UniqueFont";
-  src: url("/static/font/Unique.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-:root{
-    font-family: UniqueFont, sans-serif;
-    margin : 0;
-    padding : 0;
-    --font-color : white;
-
-}
-
-.page{
-    max-width: 90%;
-    background-color: rgb(0, 0, 0);
-    margin: auto;
-    margin-bottom: 0;
+.container{
     display: flex;
-    color : var(--font-color)
+    flex-wrap : wrap;
+    width: 640px;
+  height: 640px
 
 }
 
-.bg-image{
-    max-width: 40%;
 
-
-}
-
-input:user-invalid  {
-    border: 2px solid rgb(230, 132, 132);
-}
-
-.form-container{
-    padding:20px;
-}
-
-form input {
-    display: flex;
-    flex-direction:column;
-    margin:0px;
-    margin-bottom: 30px;
-    border-radius: 4px;
-
-
-}
-
-fieldset{
-    border: 1px solid white;
-}
-
-.form-right{
-    float: left;
-    width: 45%;
-    margin-right: 5%;
-}
-
-.form-left{
-    float: left;
-    width: 45%;
-}
-
-.fav-day-radio{
-    display: flex;
-    /* border: 1px solid white; */
-
-    border-radius: 5px;
-
-}
-
-.fav-day-radio input{
-    margin-bottom: 0px;
-    margin-right: 10px;
-    margin-left : 10px;
-}
-
-.fav-day-radio input:first-child{
-
-    margin-left : 0px;
+.cell {
+  width: calc(100% / var(--grid-size));
+  height: calc(100% / var(--grid-size));
+  border-radius: 10px;
 }
